@@ -8,12 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
-public class C04_OldStyle {
+public class S04_OldStyle {
 //    Launch browser
 //    Open https://demoqa.com/select-menu
 //    Select Old Style Select Menu using element id
