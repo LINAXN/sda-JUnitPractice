@@ -17,11 +17,11 @@ public class S01_Calculator {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        // إدخال الأرقام مرة واحدة
+
         driver.findElement(By.id("number1")).sendKeys("10");
         driver.findElement(By.id("number2")).sendKeys("5");
 
-        // تنفيذ جميع العمليات
+
         performOperation("plus", "15", wait);
         performOperation("minus", "5", wait);
         performOperation("times", "50", wait);
@@ -29,15 +29,15 @@ public class S01_Calculator {
     }
 
     void performOperation(String operation, String expected, WebDriverWait wait) {
-        // إعادة التقاط العناصر بعد كل عملية
+
         Select select = new Select(driver.findElement(By.id("function")));
         WebElement calculateButton = driver.findElement(By.id("calculate"));
 
-        // اختيار العملية والضغط
+
         select.selectByValue(operation);
         calculateButton.click();
 
-        // انتظار النت
+
     }
     @BeforeEach
     void setUp() {
