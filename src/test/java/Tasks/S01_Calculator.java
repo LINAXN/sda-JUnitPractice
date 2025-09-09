@@ -29,7 +29,7 @@ public class S01_Calculator {
 
         driver.get("https://testpages.eviltester.com/styled/calculator");
 
-        // إدخال الأرقام
+
         driver.findElement(By.id("number1")).sendKeys("10");
         driver.findElement(By.id("number2")).sendKeys("5");
 
