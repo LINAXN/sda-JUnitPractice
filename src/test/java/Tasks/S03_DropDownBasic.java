@@ -1,5 +1,7 @@
 package Tasks;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +34,19 @@ public class S03_DropDownBasic {
         assert select.getOptions().size()==3;
         driver.quit();
 
+    }
+
+    @BeforeEach
+    void setUp() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
+    }
+
+    @AfterEach
+    void tearDown() throws InterruptedException {
+        Thread.sleep(6000);
+        driver.quit();
     }
 
 }
