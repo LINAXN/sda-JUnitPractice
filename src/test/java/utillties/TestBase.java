@@ -11,7 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public abstract class TestBase {
 
@@ -33,6 +35,7 @@ public abstract class TestBase {
 
 public void takeFullPageScreenshot() throws IOException {
     TakesScreenshot screenshot = (TakesScreenshot) driver;     File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+    String now = new SimpleDateFormat("yyyyMMddhhmmssSSSSSS").format(new Date());
     try {
         FileUtils.copyFile(sourceFile, new File(System.getProperty("user.dir")+"\\files\\secreenshots\\pages_screenshot.png"));
     }  catch (IOException e){
