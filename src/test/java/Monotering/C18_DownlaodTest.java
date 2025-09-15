@@ -28,5 +28,6 @@ public class C18_DownlaodTest extends TestBase {
 //        Verify that 'QAProgram.png' file is downloaded
             Thread.sleep(1000);
             assert Files.exists(Path.of(System.getProperty("user.home") + "/Downloads/QAProgram.png"));
+            takeFullPageScreenshot();
         }
     }
