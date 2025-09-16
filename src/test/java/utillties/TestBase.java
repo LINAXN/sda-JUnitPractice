@@ -12,8 +12,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public abstract class TestBase {
@@ -54,9 +57,35 @@ public abstract class TestBase {
         }
     }
 
+    protected void takeScreenShot(WebDriver driver) {
+        TakesScreenshot ss =(TakesScreenshot)driver;
+        File screenFile = ss.getScreenshotAs(OutputType.FILE);
+        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd:HH-mm-ss"));
+        String screenShotName = "Screenshot"+timeStamp+ ".png";
+        Path screenShotPath = Path.of(System.getProperty("user.dir"),"target","test-output","screenshots",screenShotName);
 
+        try {
+            FileUtils.copyFile(screenFile,screenShotPath.toFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    protected void takeScreenshotOfElement(WebDriver driver, WebElement element) {
+        File screenShotFile = element.getScreenshotAs(OutputType.FILE);
+        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd:HH-mm-ss"));
+        String screenShotName = "ElementScreenshot"+timeStamp+ ".png";
+        Path screenShotPath = Path.of(System.getProperty("user.dir"),"target","test-output","screenshots",screenShotName);
+
+        try {
+            FileUtils.copyFile(screenShotFile,screenShotPath.toFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
-
 
 
 
