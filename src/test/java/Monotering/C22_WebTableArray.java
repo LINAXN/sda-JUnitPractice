@@ -29,7 +29,7 @@ public class C22_WebTableArray extends TestBase {
             Select select = new Select(countryDropdown);
 
             List<WebElement> options = select.getOptions();
-            int randomIndex = faker.number().numberBetween(1, options.size()); // نتجنب index=0 لأنه placeholder
+            int randomIndex = faker.number().numberBetween(1, options.size());
             select.selectByIndex(randomIndex);
 
             driver.findElement(By.xpath("//button[@onclick='addRecord()']")).click();
