@@ -1,7 +1,6 @@
 package Monotering;
 
 import org.apache.poi.ss.usermodel.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
@@ -9,7 +8,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class c21_WriteExcelStudent {
+public class C21_WriteExcelStudent {
     @Test
     void exceltest(){
          /*
