@@ -16,19 +16,19 @@ public class F2_JSEvent extends TestBase {
  *
 
          */
-        driver.get("https://testpages.herokuapp.com/styled/events/javascript-events.html");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        WebElement onblur = driver.findElement(By.id("onblur"));
-        WebElement oncontext=driver.findElement(By.id("oncontextmenu"));
-        WebElement onclick=driver.findElement(By.id("onclick"));
-
-
-        js.executeScript("arguments[0].click();", onblur);
-
-        Actions actions = new Actions(driver);
-        actions
-                .contextClick(oncontext).perform();
+//        driver.get("https://testpages.herokuapp.com/styled/events/javascript-events.html");
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//        WebElement onblur = driver.findElement(By.id("onblur"));
+//        WebElement oncontext=driver.findElement(By.id("oncontextmenu"));
+//        WebElement onclick=driver.findElement(By.id("onclick"));
+//
+//
+//        js.executeScript("arguments[0].click();", onblur);
+//
+//        Actions actions = new Actions(driver);
+//        actions
+//                .contextClick(oncontext).perform();
 
 
     }

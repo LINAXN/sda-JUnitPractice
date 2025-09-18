@@ -57,20 +57,34 @@ public class C41_WriteExcel {
         //Add Population column to the countries
         @Test
         public void addNewColumn() throws IOException {
-            FileInputStream fis = new FileInputStream(RESOURCES.resolve("Countries.xlsx").toString());
+            FileInputStream fis = new FileInputStream(RESOURCES.resolve("Csrc/test/resources/Countries.xlsx").toString());
             Workbook workbook = WorkbookFactory.create(fis);
             fis.close();
 
             Sheet sheet = workbook.getSheetAt(0);
             sheet.getRow(0).createCell(2).setCellValue("POPULATION");
 
-            FileOutputStream fos = new FileOutputStream(RESOURCES.resolve("Countries.xlsx").toString());
+            FileOutputStream fos = new FileOutputStream(RESOURCES.resolve("src/test/resources/Countries.xlsx").toString());
             workbook.write(fos);
             fos.close();
             workbook.close();
 
 
             //HW: print populations of the countries
+
+//
+//            System.out.println("Populations of the countries:");
+//
+//            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+//                Row row = sheet.getRow(i);
+//                if (row != null) {
+//                    String country = row.getCell(0).getStringCellValue();
+//                    double population = row.getCell(2).getNumericCellValue();
+//                    System.out.println(country + " → " + (long) population);
+//                }
+//            }
+//
+//            workbook.close();
 
 
         }
