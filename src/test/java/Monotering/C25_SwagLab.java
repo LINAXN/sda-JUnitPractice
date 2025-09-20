@@ -11,6 +11,8 @@ import utillties.ActionHelper;
 import utillties.TestBase;
 import utillties.TestBaseExtentReport;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class C25_SwagLab extends TestBaseExtentReport {
@@ -47,22 +49,27 @@ public class C25_SwagLab extends TestBaseExtentReport {
             test.pass("Products sorted by Price (low to high)");
 
 
-            WebElement lowest = driver.findElements(By.xpath("//div[@class='inventory_item']")).getFirst();
-    WebElement highest = driver.findElements(By.xpath("//div[@class='inventory_item']")).getLast();
+//            WebElement lowest = driver.findElements(By.xpath("//div[@class='inventory_item']")).getFirst();
+//    WebElement highest = driver.findElements(By.xpath("//div[@class='inventory_item']")).getLast();
 
 
 //    takeElementsScreenshot(lowest);
 //    takeElementsScreenshot(highest);
 
-            String lowestProduct = takeElementsScreenshot(lowest, "lowestProduct");
-            String highestProduct = takeElementsScreenshot(highest, "highestProduct");
-            Thread.sleep(3000);
+//            String lowestProduct = takeElementsScreenshot(lowest, "lowestProduct");
+//            String highestProduct = takeElementsScreenshot(highest, "highestProduct");
 
-            test.pass("Lowest product is",
-                    MediaEntityBuilder.createScreenCaptureFromPath(lowestProduct).build());
-Thread.sleep(3000);
-            test.pass("Highest product is",
-                    MediaEntityBuilder.createScreenCaptureFromPath(highestProduct).build());
+
+            List<WebElement> products = driver.findElements(By.xpath("//div[@class='inventory_item']"));
+            WebElement lowest = products.get(0);
+            WebElement highest = products.get(products.size() - 1);
+
+            // Take element screenshots
+            String lowestProductPath = takeElementsScreenshot(lowest, "lowestProduct");
+            String highestProductPath = takeElementsScreenshot(highest, "highestProduct");
+
+            test.pass("Lowest product is", MediaEntityBuilder.createScreenCaptureFromPath(lowestProductPath).build());
+            test.pass("Highest product is", MediaEntityBuilder.createScreenCaptureFromPath(highestProductPath).build());
 
             // Assertions
             assertTrue(lowest.isDisplayed());

@@ -156,8 +156,7 @@ public class TestBaseExtentReport {
         File screenshot = element.getScreenshotAs(OutputType.FILE);
         String now = new SimpleDateFormat("yyyyMMddhhmmssSSSSS").format(new Date());
 
-        // اسم الملف + مجلد ثابت
-        String path = System.getProperty("user.dir") + "/test_outputs/screenshots/" + name + "_" + now + ".png";
+        String path = System.getProperty("user.dir") + "/test-output/screenshots/" + name + "_" + now + ".png";
         File dest = new File(path);
 
         try {
